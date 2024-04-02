@@ -5,9 +5,11 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   template: `
+  <div>
     <p>
       tab-bar works!
     </p>
+  </div>
   `,
   styleUrl: './tab-bar.component.css'
 })
