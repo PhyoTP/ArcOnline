@@ -2,3 +2,8 @@
     width: 100%;
     height: 100vh;
 }
+app-tab-bar{
+    float: left;
+    width: 20%; /* Adjust the width of the sidebar */
+    height: 100%;
+}

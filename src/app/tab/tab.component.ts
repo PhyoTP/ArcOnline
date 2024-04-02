@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   imports: [],
   template: `
   <div class="iframe-container">
-    <iframe src="https://phyotp.github.io"></iframe>
+    <iframe src="https://arc.net"></iframe>
   </div>
   `,
   styleUrl: './tab.component.css'

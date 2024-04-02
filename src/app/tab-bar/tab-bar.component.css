@@ -1,5 +1,16 @@
-div{
-    float: left;
-    width: 20%; /* Adjust the width of the sidebar */
-    height: 100%;
+.circle{
+    width: 15px; /* Adjust the width and height as needed */
+    height: 15px;
+    border-radius: 50%; /* Makes the div circular */
+    border: none;
+    margin: 0px 2.5px 0px 2.5px;
+}
+#closeButton{
+    background-color: red; 
+}
+#resizeButton{
+    background-color: yellow;
+}
+#fScrButton{
+    background-color: lime;
 }
