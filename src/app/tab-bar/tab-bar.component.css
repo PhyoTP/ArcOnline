@@ -5,12 +5,21 @@
     border: none;
     margin: 0px 2.5px 0px 2.5px;
 }
-#closeButton{
+.windowButtons:hover #closeButton{
     background-color: red; 
 }
-#resizeButton{
+.windowButtons:hover #resizeButton{
     background-color: yellow;
 }
-#fScrButton{
+.windowButtons:hover #fScrButton{
     background-color: lime;
+}
+.windowButtons{
+    display: inline;
+}
+.toggleSidebar{
+    background:none;
+    border: none;
+    position: relative;
+    top:1.49999994039535515px;
 }

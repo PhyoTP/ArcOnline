@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './tab-bar.component.css'
 })
 export class TabBarComponent {
-
+  
 }
