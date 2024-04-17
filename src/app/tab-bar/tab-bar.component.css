@@ -5,24 +5,28 @@
     border: none;
     margin: 0px 2.5px 0px 2.5px;
 }
-.windowButtons:hover #closeButton{
+#windowButtons:hover #closeButton{
     background-color: red; 
 }
-.windowButtons:hover #resizeButton{
+#windowButtons:hover #resizeButton{
     background-color: yellow;
 }
-.windowButtons:hover #fScrButton{
+#windowButtons:hover #fScrButton{
     background-color: lime;
 }
-.windowButtons{
+#windowButtons{
     display: inline;
 }
-.toggleSidebar{
+#toggleSidebar{
     background:none;
     border: none;
-    position: relative;
-    top:7.49999994039535515px;
 }
-.toggleSidebar img{
+#toggleSidebar img{
     width:15px;
+}
+#leftTopBar{
+    float: left;
+}
+#rightTopBar{
+    float: right;
 }
