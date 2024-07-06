@@ -1,13 +1,4 @@
-#topBar{
-    padding-top: 5px;
-}
-.circle{
-    width: 13px; /* Adjust the width and height as needed */
-    height: 13px;
-    border-radius: 50%; /* Makes the div circular */
-    border: none;
-    margin: 0px 0px 0px 5px;
-}
+
 #windowButtons:hover #closeButton{
     background-color: red; 
 }
@@ -17,38 +8,9 @@
 #windowButtons:hover #fScrButton{
     background-color: lime;
 }
-#windowButtons{
-    display: inline;
-    position: relative;
-    bottom:3px;
-    padding-right: 5px;
+#topBar img {
+    width: 3vw;
 }
-.iconButton{
-    background:none;
-    border: none;
-    display: inline;
-    padding-right: 10px;
-}
-.iconButton img{
-    width:15px;
-    opacity: 70%;
-}
-#leftTopBar{
-    float: left;
-}
-#rightTopBar{
-    float: right;
-    position: relative;
-    top:1px;
-}
-#forwardBackwardButton{
-    float: left;
-}
-#reloadButton{
-    float: right;
-    position: relative;
-    bottom: 2.5px;
-}
-#toggleSidebar img{
-    width:20px;
+.circle{
+    height: 3vw;    
 }
