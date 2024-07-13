@@ -1,4 +1,8 @@
-
+#topBar, #topBar *{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
 #windowButtons:hover #closeButton{
     background-color: red; 
 }
@@ -8,9 +12,24 @@
 #windowButtons:hover #fScrButton{
     background-color: lime;
 }
-#topBar img {
-    width: 3vw;
-}
 .circle{
-    height: 3vw;    
+    width: 1.5vw;
+    height: 1.5vw;
+    border-radius: 3vw;
+    border-width: 0;
+}
+.iconButton{
+    height: 1.5vw;
+    background: none;
+    border: none;
+}
+img{
+    height:100%;
+}
+
+button{
+    cursor: pointer;
+}
+#reloadButton img{
+    height: 115%;
 }
