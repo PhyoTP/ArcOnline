@@ -1,7 +1,7 @@
 <div id="topBar">
     <div id="leftTopBar">
         <div id="windowButtons">
-            <button class="circle" id="closeButton"></button>
+            <button class="circle" id="closeButton" (click)="close()"></button>
             <button class="circle" id="resizeButton"></button>
             <button class="circle" id="fScrButton"></button>
         </div>
@@ -23,4 +23,7 @@
             <img src="assets/arrow.clockwise.png">
         </button>
     </div>
+</div>
+<div id="textBox">
+    <input type="text" ([ngModel])="url" (keyup.enter)="loadUrl()" id="urlInput" placeholder="{{url}}">
 </div>

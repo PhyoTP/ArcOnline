@@ -25,7 +25,7 @@
     border-width: 0;
 }
 .iconButton:hover{
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(0, 0, 0, 0.3);
     border-radius: 5px;
 }
 img{
@@ -50,4 +50,18 @@ button{
 }
 #rightTopBar{
     margin-right:3px;
+}
+#urlInput{
+    margin-top: 10px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    border:none;
+    padding:10px;
+    border-radius: 10px;
+}
+#textBox{
+    width:80%;
+}
+#urlInput::placeholder{
+    color:black;
 }

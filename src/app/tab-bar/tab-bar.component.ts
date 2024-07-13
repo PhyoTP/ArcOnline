@@ -8,5 +8,11 @@ import { Component } from '@angular/core';
   styleUrl: './tab-bar.component.css'
 })
 export class TabBarComponent {
-  
+  url = "arc.net"
+  close(){
+    window.location.href = "about:blank"
+  }
+  loadUrl(){
+    
+  }
 }
