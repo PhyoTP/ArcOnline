@@ -12,6 +12,6 @@ export class UrlService {
 
   changeUrl(url: string) {
     this.urlSource.next(checkURL(url).url);
-    currentTab.links[0].url = url;
+    currentTab.links[0] = checkURL(url);
   }
 }
