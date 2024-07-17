@@ -2,7 +2,7 @@ export interface Url {
     url: string,
     website: string
 }
-function checkURL(link: string): Url {
+export function checkURL(link: string): Url {
     if (!link.startsWith('http://') && !link.startsWith('https://')) {
         return { url: `https://${link}`, website: link };
     }else {
@@ -25,6 +25,6 @@ function makeTab(sites: string[]): Tab{
     }
     return thing;
 }
-export const currentTab: Tab = makeTab(["arc.net"]);
+export const currentTab: Tab = makeTab(["phyotp.github.io"]);
 export const pinnedTabs: Tab[] = [makeTab(["arc.net"]),makeTab(["phyotp.github.io"])];
 export const tabs: Tab[] = [makeTab(["github.com","chatgpt.com"]),makeTab(["discord.com"])];
