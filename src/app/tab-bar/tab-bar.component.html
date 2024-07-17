@@ -25,5 +25,5 @@
     </div>
 </div>
 <div id="textBox">
-    <input type="text" ([ngModel])="link" (keyup.enter)="loadUrl()" id="urlInput" placeholder="{{link}}">
+    <input type="text" (input)="onUrlChange($event)" placeholder="Enter URL" id="urlInput">
 </div>

@@ -1,22 +1,23 @@
-import { Component } from '@angular/core';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { url } from '../../url';
+import { Component, OnInit } from '@angular/core';
+import { UrlService } from '../url.service';
+import { SafePipe } from '../safe.pipe';
 @Component({
   selector: 'app-tab',
   standalone: true,
-  imports: [],
+  imports: [SafePipe],
   template: `
   <div class="iframe-container">
-    <iframe [src]="safeLink"></iframe>
+    <iframe [src]="url | safe"></iframe>
   </div>
   `,
   styleUrls: ['./tab.component.css']
 })
-export class TabComponent {
-  link: string = url[0];
-  safeLink: SafeResourceUrl;
+export class TabComponent implements OnInit{
+  url: string = '';
 
-  constructor(private sanitizer: DomSanitizer) {
-    this.safeLink = this.sanitizer.bypassSecurityTrustResourceUrl(this.link);
+  constructor(private urlService: UrlService) { }
+
+  ngOnInit(): void {
+    this.urlService.currentUrl.subscribe(url => this.url = url);
   }
 }

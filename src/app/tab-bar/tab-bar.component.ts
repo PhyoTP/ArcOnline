@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { url } from '../../url';
+import { UrlService } from '../url.service';
 @Component({
   selector: 'app-tab-bar',
   standalone: true,
@@ -8,23 +8,13 @@ import { url } from '../../url';
   styleUrl: './tab-bar.component.css'
 })
   export class TabBarComponent {
-    link = url[0];
+    constructor(private urlService: UrlService) { }
 
-    constructor() {
-      // This line is not necessary; removing to avoid confusion
-      // url = this.link;
+    onUrlChange(event: Event) {
+      const inputElement = event.target as HTMLInputElement;
+      this.urlService.changeUrl(inputElement.value);
     }
-
     close() {
       window.location.href = "about:blank";
-    }
-
-    loadUrl() {
-      // Directly modifying the imported variable
-      this.updateUrl(this.link);
-    }
-
-    updateUrl(newUrl: string) {
-      url[0] = newUrl;
     }
   }
