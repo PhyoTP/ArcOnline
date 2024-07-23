@@ -11,7 +11,8 @@ export class UrlService {
   constructor() { }
 
   changeUrl(url: string) {
+    currentTab.history.push(currentTab.links);
     this.urlSource.next(checkURL(url).url);
-    currentTab.links[0] = checkURL(url);
+    currentTab.links = [checkURL(url)];
   }
 }

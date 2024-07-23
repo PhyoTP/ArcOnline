@@ -15,15 +15,29 @@ export function checkURL(link: string): Url {
 }
 export interface Tab {
     titles: string[], 
-    links: Url[]
+    links: Url[],
+    history: Url[][],
+    future: Url[][]
 }
 function makeTab(sites: string[]): Tab{
-    let thing: Tab = {titles: [], links: []};
+    let thing: Tab = {titles: [], links: [], history: [], future: []};
     for (let site of sites) {
         thing.links.push(checkURL(site));
         thing.titles.push(checkURL(site).website);
     }
     return thing;
+}
+export function goBack(tab: Tab){
+    if (tab.history.length > 0) {
+        tab.future.push(tab.links);
+        tab.links = tab.history[tab.history.length - 1];
+    }
+}
+export function goForward(tab: Tab) {
+    if (tab.future.length > 0) {
+        tab.history.push(tab.links);
+        tab.links = tab.future[tab.future.length - 1];
+    }
 }
 export const currentTab: Tab = makeTab(["phyotp.github.io"]);
 export const pinnedTabs: Tab[] = [makeTab(["arc.net"]),makeTab(["phyotp.github.io"])];
