@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { currentTab, checkURL } from '../url'
+import { currentTab, makeURL } from '../url'
 @Injectable({
   providedIn: 'root'
 })
@@ -12,7 +12,7 @@ export class UrlService {
 
   changeUrl(url: string) {
     currentTab.history.push(currentTab.links);
-    this.urlSource.next(checkURL(url).url);
-    currentTab.links = [checkURL(url)];
+    this.urlSource.next(makeURL(url).url);
+    currentTab.links = [makeURL(url)];
   }
 }

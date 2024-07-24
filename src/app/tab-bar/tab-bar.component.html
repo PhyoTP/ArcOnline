@@ -15,7 +15,7 @@
             <button id="backwardButton" class="iconButton" (click)="back()">
                 <img src="assets/arrow.backward.png">
             </button>
-            <button id="forwardButton" class="iconButton" (click)="forward()")>
+            <button id="forwardButton" class="iconButton" (click)="forward()">
                 <img src="assets/arrow.forward.png">
             </button>
         </div>
@@ -25,5 +25,5 @@
     </div>
 </div>
 <div id="textBox">
-    <input type="text"(input)="onUrlChange($event)" placeholder="Enter URL" id="urlInput">
+    <input type="url" (keyup.enter)="onUrlChange($event)" placeholder="Enter URL" #urlInput id="urlInput">
 </div>

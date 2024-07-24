@@ -2,9 +2,14 @@ export interface Url {
     url: string,
     website: string
 }
-export function checkURL(link: string): Url {
+export function makeURL(link: string): Url {
     if (!link.startsWith('http://') && !link.startsWith('https://')) {
-        return { url: `https://${link}`, website: link };
+        const urlPattern = /^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w- ./?%&=]*)?$/i;
+        if (!urlPattern.test(link)) {
+            return { url: `https://google.com/search?q=${encodeURIComponent(link)}&igu=1`, website: link };
+        }else{
+            return { url: `https://${link}`, website: link };
+        }
     }else {
         if (link.startsWith("http://")) {
             return { url: link, website: link.slice(7) };
@@ -22,8 +27,8 @@ export interface Tab {
 function makeTab(sites: string[]): Tab{
     let thing: Tab = {titles: [], links: [], history: [], future: []};
     for (let site of sites) {
-        thing.links.push(checkURL(site));
-        thing.titles.push(checkURL(site).website);
+        thing.links.push(makeURL(site));
+        thing.titles.push(makeURL(site).website);
     }
     return thing;
 }
