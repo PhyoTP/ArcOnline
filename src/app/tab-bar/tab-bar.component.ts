@@ -1,6 +1,6 @@
 import { Component, ViewChild, AfterViewInit, ElementRef } from '@angular/core';
 import { UrlService } from '../url.service';
-import { goBack, goForward, currentTab, pinnedTabs, tabs, makeURL } from '../../url';
+import { goBack, goForward, currentTab, bookmarks, pinnedTabs, tabs, makeTab } from '../../url';
 @Component({
   selector: 'app-tab-bar',
   standalone: true,
@@ -15,7 +15,7 @@ export class TabBarComponent implements AfterViewInit{
   ngAfterViewInit() {
     this.urlService.currentUrl.subscribe(url => {
       if (this.urlInput) {
-        this.urlInput.nativeElement.value = makeURL(url).website;
+        this.urlInput.nativeElement.value = makeTab([url]).titles[0];
       }
     });
   }

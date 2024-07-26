@@ -1,21 +1,17 @@
 export interface Url {
     url: string,
-    website: string
+    domain: string
 }
+export const hasScheme = /^\w+:\/\//gi;
+export const domainFinder = /^(\w+(\.|:))+\w+$/gi;
 export function makeURL(link: string): Url {
-    if (!link.startsWith('http://') && !link.startsWith('https://')) {
-        const urlPattern = /^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w- ./?%&=]*)?$/i;
-        if (!urlPattern.test(link)) {
-            return { url: `https://google.com/search?q=${encodeURIComponent(link)}&igu=1`, website: link };
-        }else{
-            return { url: `https://${link}`, website: link };
-        }
+    const urlPattern = /^(\w+:\/\/)?(\w+(\.|:))+\w+.+$/gi;
+    if (!urlPattern.test(link)) {
+        return { url: `https://google.com/search?q=${encodeURIComponent(link)}&igu=1`, domain: "google.com" };
+    }else if (link.match(hasScheme)){
+        return { url: link, domain: (link.match(domainFinder) ?? [link])[0] };
     }else {
-        if (link.startsWith("http://")) {
-            return { url: link, website: link.slice(7) };
-        }else {
-            return { url: link, website: link.slice(8) };
-        }
+        return { url: `https://${link}`, domain: (link.match(domainFinder) ?? [link])[0] }
     }
 }
 export interface Tab {
@@ -24,11 +20,12 @@ export interface Tab {
     history: Url[][],
     future: Url[][]
 }
-function makeTab(sites: string[]): Tab{
+export function makeTab(sites: string[]): Tab{
     let thing: Tab = {titles: [], links: [], history: [], future: []};
     for (let site of sites) {
         thing.links.push(makeURL(site));
-        thing.titles.push(makeURL(site).website);
+        const trimmedUrl = site.replace(hasScheme, "").trim();
+        thing.titles.push((trimmedUrl.match(domainFinder)??[site.replace("https://google.com/search?q=","").trim().replace("&igu=1","").trim()])[0]);
     }
     return thing;
 }
@@ -45,5 +42,6 @@ export function goForward(tab: Tab) {
     }
 }
 export const currentTab: Tab = makeTab(["phyotp.github.io"]);
+export const bookmarks: Tab[] = [makeTab(["https://google.com/?igu=1"])];
 export const pinnedTabs: Tab[] = [makeTab(["arc.net"]),makeTab(["phyotp.github.io"])];
-export const tabs: Tab[] = [makeTab(["github.com","chatgpt.com"]),makeTab(["discord.com"])];
+export const tabs: Tab[] = [makeTab(["easyfun.gg"])];
