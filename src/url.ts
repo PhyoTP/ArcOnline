@@ -45,3 +45,4 @@ export const currentTab: Tab = makeTab(["phyotp.github.io"]);
 export const bookmarks: Tab[] = [makeTab(["https://google.com/?igu=1"])];
 export const pinnedTabs: Tab[] = [makeTab(["arc.net"]),makeTab(["phyotp.github.io"])];
 export const tabs: Tab[] = [makeTab(["easyfun.gg"])];
+export const commandBarIsActive: Boolean[] = [false]

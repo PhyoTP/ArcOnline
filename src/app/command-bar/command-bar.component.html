@@ -1,0 +1,3 @@
+<div id="commandBar" [ngStyle]="{'opacity': isActive ? '1' : '0'}">
+  <input type="text" (keyup.enter)="onUrlChange($event)" placeholder="Enter URL" #urlInput id="urlInput">
+</div>

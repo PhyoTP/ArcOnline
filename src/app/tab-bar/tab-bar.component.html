@@ -12,10 +12,10 @@
     <div style="flex-grow: 1;"></div>
     <div id="rightTopBar">
         <div id="forwardBackwardButton">
-            <button id="backwardButton" class="iconButton" (click)="back()">
+            <button id="backwardButton" class="iconButton">
                 <img src="assets/arrow.backward.png">
             </button>
-            <button id="forwardButton" class="iconButton" (click)="forward()">
+            <button id="forwardButton" class="iconButton">
                 <img src="assets/arrow.forward.png">
             </button>
         </div>
@@ -25,5 +25,5 @@
     </div>
 </div>
 <div id="textBox">
-    <input type="text" (keyup.enter)="onUrlChange($event)" placeholder="Enter URL" #urlInput id="urlInput">
+    <button id="addressBar" #addressBar (click)="openCommandBar()"></button>
 </div>

@@ -51,17 +51,19 @@ button{
 #rightTopBar{
     margin-right:3px;
 }
-#urlInput{
+#addressBar{
     margin-top: 10px;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.1);
     border:none;
     padding:10px;
     border-radius: 10px;
+    text-align: left;
+    overflow: hidden;
 }
 #textBox{
-    width:80%;
+    width:90%;
 }
-#urlInput::placeholder{
+#addressBox::placeholder{
     color:black;
 }
