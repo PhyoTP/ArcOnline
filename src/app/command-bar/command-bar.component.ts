@@ -1,6 +1,6 @@
 import { Component, ViewChild, AfterViewInit, ElementRef } from '@angular/core';
 import { UrlService } from '../url.service';
-import { commandBarIsActive } from '../../url';
+import { CommandBarService } from '../command-bar.service';
 @Component({
   selector: 'app-command-bar',
   standalone: true,
@@ -9,9 +9,20 @@ import { commandBarIsActive } from '../../url';
   styleUrl: './command-bar.component.css'
 })
 export class CommandBarComponent implements AfterViewInit{
-  isActive = commandBarIsActive;
+  constructor(
+    private urlService: UrlService,
+    private commandBarService: CommandBarService
+  ) {}
+
+  currentStatus: boolean = false;
+
+  ngOnInit(): void {
+    this.commandBarService.currentStatus.subscribe(
+      // update the component's property
+      status => this.currentStatus = status
+    );
+  }
   @ViewChild('urlInput') urlInput!: ElementRef;
-  constructor(private urlService: UrlService) { };
   ngAfterViewInit() {
     this.urlService.currentUrl.subscribe(url => {
       if (this.urlInput) {

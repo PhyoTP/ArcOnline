@@ -1,7 +1,16 @@
 #commandBar{
-  z-index:1;
-  position:fixed;
+  position:absolute;
+  top:0;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  margin-left:25vw;
+  margin-top:30vh;
+}
+.on{
+  opacity:0;
+}
+.off{
+  opacity:1;
+}
+#urlInput{
+  font-size: 30px;
 }

@@ -1,6 +1,7 @@
 import { Component, ViewChild, AfterViewInit, ElementRef } from '@angular/core';
 import { UrlService } from '../url.service';
-import { makeTab, commandBarIsActive } from '../../url';
+import { makeTab } from '../../url';
+import { CommandBarService } from '../command-bar.service';
 @Component({
   selector: 'app-tab-bar',
   standalone: true,
@@ -10,7 +11,10 @@ import { makeTab, commandBarIsActive } from '../../url';
 })
 export class TabBarComponent implements AfterViewInit{
   @ViewChild('addressBar') addressBar!: ElementRef;
-  constructor(private urlService: UrlService) { };
+  constructor(
+    private urlService: UrlService,
+    private commandBarService: CommandBarService
+  ) {}
   ngAfterViewInit() {
     this.urlService.currentUrl.subscribe(url => {
       if (this.addressBar) {
@@ -21,9 +25,11 @@ export class TabBarComponent implements AfterViewInit{
   close() {
     window.location.href = "https://github.com/PhyoTP/ArcOnline";
   }
-  openCommandBar() {
-    if (!commandBarIsActive[0]) {
-      commandBarIsActive[0] = true
-    }
+
+  status: boolean = true;
+
+  openCommandBar(){    
+   this.commandBarService.updateStatus(this.status);
+    console.log(this.commandBarService.currentStatus)
   }
 }
